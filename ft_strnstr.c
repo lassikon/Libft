@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 12:16:25 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/10/30 14:38:47 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 12:32:20 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
-// [crash]: your strnstr crush when null parameter is sent with a size of 0
+/*
+Locates the first occurrence of the null-terminated string needle in
+the string haystack, where not more than len characters are searched.
+
+If needle is an empty string, haystack is returned; if needle occurs
+nowhere in haystack, NULL is returned; otherwise a pointer to the first
+character of the first occurrence of needle is returned.
+*/

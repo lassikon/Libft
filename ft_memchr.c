@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:44:57 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/10/30 14:47:07 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 11:46:04 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
+/*
+Locates the first occurrence of c (converted to an unsigned char) in string s,
+and returns a pointer to it, or null if no such byte exists within n bytes.
+*/

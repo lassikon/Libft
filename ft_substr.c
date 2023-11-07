@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:19:13 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/04 18:26:07 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 12:09:37 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (str == NULL)
 		return (NULL);
 	i = 0;
-	while (len > 0)
+	while (i < len)
 	{
 		str[i] = s[start + i];
 		i++;
-		len--;
 	}
 	str[i] = '\0';
 	return (str);
 }
-// Need to figure out how this works again
+/*
+Allocates memory for and returns a substring from the string ’s’.
+The substring begins at index ’start’ and is of maximum size ’len’.
+*/

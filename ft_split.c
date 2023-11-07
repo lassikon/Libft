@@ -6,22 +6,25 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 10:52:56 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/02 12:32:31 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:06:35 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	free_array(char **array, size_t index)
+// Frees the memory allocated for every previous substring,
+// then frees the array.
+static void	free_array(char **str_array, size_t index)
 {
-	while (index >= 0)
+	while (index > 0)
 	{
-		free(array[index]);
+		free(str_array[index -1]);
 		index--;
 	}
-	free(array);
+	free(str_array);
 }
 
+// Counts the number of substrings that need to be created
 static size_t	substr_count(const char *s, char c)
 {
 	size_t	count;
@@ -45,7 +48,8 @@ static size_t	substr_count(const char *s, char c)
 	return (count);
 }
 
-size_t	substr_len(const char *s, char c)
+// Returns the length of substring being created
+static size_t	substr_len(const char *s, char c)
 {
 	size_t	i;
 
@@ -59,7 +63,8 @@ size_t	substr_len(const char *s, char c)
 	return (i);
 }
 
-static char	**array_creator(const char *s, char c, char **array)
+// Chops s into substrings into str_array
+static char	**array_creator(const char *s, char c, char **str_array)
 {
 	size_t	i;
 	size_t	k;
@@ -72,30 +77,30 @@ static char	**array_creator(const char *s, char c, char **array)
 			i++;
 		if (s[i] != c && s[i] != '\0')
 		{
-			array[k] = ft_substr(s, i, substr_len(&s[i], c));
-			if (!array[k])
+			str_array[k] = ft_substr(s, i, substr_len(&s[i], c));
+			if (!str_array[k])
 			{
-				free_array(array, k - 1);
+				free_array(str_array, k);
 				return (NULL);
 			}
 			i = i + substr_len(&s[i], c);
 		}
 		k++;
 	}
-	array[k] = (NULL);
-	return (array);
+	str_array[k] = NULL;
+	return (str_array);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	char	**array;
+	char	**str_array;
 
 	if (!s)
 		return (NULL);
-	array = (char **) malloc (sizeof(char *) * (substr_count(s, c) + 1));
-	if (!array)
+	str_array = (char **) malloc (sizeof(char *) * (substr_count(s, c) + 1));
+	if (!str_array)
 		return (NULL);
-	if (!array_creator(s, c, array))
+	if (!array_creator(s, c, str_array))
 		return (NULL);
-	return (array);
+	return (str_array);
 }

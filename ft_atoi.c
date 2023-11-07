@@ -6,46 +6,47 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 16:38:34 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/03 09:58:57 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/07 13:56:26 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* static int	size_check(unsigned long long nbr, int sign)
+static int	max_check(long nbr, long temp, int sign)
 {
-	if (nbr > 9223372036854775807 && sign > 0)
-		return (-1);
-	else if (nbr > 9223372036854775807 && sign < 0)
+	if (nbr < temp)
+	{
+		if (sign > 0)
+			return (-1);
 		return (0);
-	else
-		return (1);
-} */
-// Returns -1 if nbr > max long long, or 0 if nbr < min long long
+	}
+	return (1);
+}
+// Returns -1 if nbr goes over max long and was positive, or 0 if negative
 
 int	ft_atoi(const char *str)
 {
-	int					i;
-	int					sign;
-	long				nbr;
+	int		sign;
+	long	nbr;
+	long	previous;
 
-	i = 0;
 	sign = 1;
 	nbr = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			sign = sign * -1;
-		i++;
+		str++;
 	}
-	if (str[i] < '0' && str[i] > '9')
+	if (*str < '0' && *str > '9')
 		return (0);
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		nbr = nbr * 10 + str[i] - '0';
-		if (size_check(nbr, sign) != 1)
-			return (size_check(nbr, sign));
-		i++;
+		previous = nbr;
+		nbr = nbr * 10 + *str - '0';
+		if (max_check(nbr, previous, sign) != 1)
+			return (max_check(nbr, previous, sign));
+		str++;
 	}
-	return (nbr * sign);
+	return ((int)nbr * sign);
 }

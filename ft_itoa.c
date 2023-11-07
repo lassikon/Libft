@@ -6,13 +6,13 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:41:39 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/01 10:51:32 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:09:25 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_digit_count(long n)
+static size_t	digit_count(long n)
 {
 	size_t	i;
 
@@ -34,7 +34,7 @@ char	*ft_itoa(int n)
 	size_t	len;
 
 	nbl = n;
-	len = ft_digit_count(nbl);
+	len = digit_count(nbl);
 	if (nbl < 0)
 	{
 		nbl = -nbl;

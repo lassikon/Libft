@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 11:07:06 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/02 12:37:41 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:12:45 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
+/*
+Applies function 'f' to each character of the string 's',
+creating a new string from the results.
+*/

@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 16:50:52 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/04 16:52:04 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:50:28 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*ptr;
 	size_t	check_max;
 
-	if (count == 0 || size == 0)
-		return (ft_calloc(1, 1));
 	check_max = count * size;
-	if (count != check_max / size)
+	if (size != 0 && count != check_max / size)
+		return (NULL);
+	if (count != 0 && size != check_max / count)
 		return (NULL);
 	ptr = malloc(count * size);
 	if (ptr == (NULL))
@@ -28,4 +28,4 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(ptr, size * count);
 	return (ptr);
 }
-// Checks for (count * size) being over unsigned int max
+// Checks for (count * size) being over size_t max

@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:10:37 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/10/30 14:47:57 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 11:48:36 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+/*
+Compares byte strings s1 and s2, and returns the difference between the first two
+differing bytes (treated as unsigned char values).
+*/

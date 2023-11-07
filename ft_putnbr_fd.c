@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:14:08 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/10/31 11:40:33 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:31:53 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(nbl / 10, fd);
 		nbl = nbl % 10;
 	}
-	ft_putchar_fd(nbl + 48, fd);
+	ft_putchar_fd(nbl + '0', fd);
 }

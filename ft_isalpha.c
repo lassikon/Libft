@@ -6,18 +6,14 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 10:43:57 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/10/24 11:08:07 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 10:03:24 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-	{
 		return (1);
-	}
 	else
-	{
 		return (0);
-	}
 }

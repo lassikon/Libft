@@ -1,6 +1,8 @@
+# Define compiler and flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
+# Define source files for main library
 SOURCES = ft_isalnum.c \
 		  ft_isalpha.c \
 		  ft_isascii.c \
@@ -36,40 +38,53 @@ SOURCES = ft_isalnum.c \
 		  ft_strmapi.c \
 		  ft_split.c
 
-BONUS_SOURCES =	ft_lstnew.c \
-				ft_lstadd_front.c \
-				ft_lstsize.c \
-				ft_lstlast.c \
-				ft_lstadd_back.c \
-				ft_lstdelone.c \
-				ft_lstclear.c \
-				ft_lstiter.c \
-				ft_lstmap.c
+# Define source files for bonus library
+BONUS_SOURCES =	ft_lstnew_bonus.c \
+				ft_lstadd_front_bonus.c \
+				ft_lstsize_bonus.c \
+				ft_lstlast_bonus.c \
+				ft_lstadd_back_bonus.c \
+				ft_lstdelone_bonus.c \
+				ft_lstclear_bonus.c \
+				ft_lstiter_bonus.c \
+				ft_lstmap_bonus.c
 
-
+# Generate object file names from source file names
 OBJECTS = $(SOURCES:.c=.o)
 
 BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
 
+# Define library name
 NAME = libft.a
 
+# Rule to build the main library
 $(NAME):
 	$(CC) $(CFLAGS) -c $(SOURCES)
 	ar -rs $(NAME) $(OBJECTS)
 
+# Default target, builds the main library
 all: $(NAME)
 
-bonus:
-	$(CC) $(CFLAGS) -c $(BONUS_SOURCES)
-	ar -rs $(NAME) $(BONUS_OBJECTS)
+# Rule to build the bonus library
+bonus: .bonus
 
+# Builds the bonus library if .bonus marker file doesn't exist
+.bonus:
+		$(CC) $(CFLAGS) -c $(BONUS_SOURCES)
+		ar -rs $(NAME) $(BONUS_OBJECTS)
+		touch .bonus
+
+# Rule to clean and rebuild the library
 re: fclean all
 
+# Rule to clean up object files
 clean:
-	rm -f $(OBJECTS)
-	rm -f $(BONUS_OBJECTS)
+	rm -f $(OBJECTS) $(BONUS_OBJECTS)
+	rm -f .bonus
 
+# Rule to clean up object files AND library
 fclean: clean
 	rm -f $(NAME)
 
-.PHONY: all re clean fclean
+# Mark targets that don't correspond to file names
+.PHONY: all re clean fclean bonus

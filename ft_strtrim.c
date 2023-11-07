@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 09:22:15 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/01 10:11:30 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 12:20:50 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(s1));
 	while (start < str_len)
 	{
-		if (ft_strchr(set, s1[start]) == (NULL))
+		if (ft_strchr(set, s1[start]) == NULL)
 			break ;
 		start++;
 	}
 	end = str_len - 1;
 	while (end > 0 && end > start)
 	{
-		if (ft_strchr(set, s1[end]) == (NULL))
+		if (ft_strchr(set, s1[end]) == NULL)
 			break ;
 		end--;
 	}
@@ -40,13 +40,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (ft_substr(s1, start, trimmed_len));
 }
 /*
-If s1 or set are blank, uses ft_strdup to malloc for an empty string 
-(not necessary?).
-Otherwise iterate through s1 from both ends until s1[] not found in set,
-then save start and end locations of the first non-set characters found.
+If s1 or set are blank, uses ft_strdup to malloc for an empty string.
+Otherwise iterates through s1 from both ends until s1[] not found in set,
+then saves start and end locations of the first non-set characters found.
 
-ft_substr is used to produce the trimmed string from s1 using start 
+Uses ft_substr to produce the trimmed string from s1 using start 
 and trimmed_len.
-trimmed_len = str_len minus the trimming from both ends, and +1 because
-we had to set end to (str_len - 1) in order to to not start at null terminator.
+trimmed_len = str_len minus the trimming from both ends, and +1 because end was
+set to (str_len - 1) in order to to not start iterating from null terminator.
 */

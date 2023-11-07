@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:04:03 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/10/30 14:57:36 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 10:25:31 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,5 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
+/* Writes len bytes of value c (converted
+to an unsigned char) to the string b. */

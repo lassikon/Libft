@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:03:39 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/10/30 16:40:01 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 12:04:55 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char	*ptr;
-	size_t	s1_len;
+	char	*str;
+	size_t	len;
 
-	s1_len = ft_strlen(s1);
-	ptr = (char *) malloc(sizeof(char) * (s1_len + 1));
-	if (!ptr)
+	len = ft_strlen(s1);
+	str = (char *) malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
-	ft_strlcpy(ptr, s1, s1_len + 1);
-	return (ptr);
+	ft_strlcpy(str, s1, len + 1);
+	return (str);
 }
+/*
+Allocates sufficient memory for a copy of the string s1,
+does the copy, and returns a pointer to it.
+*/

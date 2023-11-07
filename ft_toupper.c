@@ -6,18 +6,14 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:35:07 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/10/24 14:54:49 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/06 11:12:20 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-	{
 		return (c - 32);
-	}
 	else
-	{
 		return (c);
-	}
 }
